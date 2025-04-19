@@ -18,7 +18,29 @@ Tải dependencies và tạo môi trường ảo với `uv`:
 uv sync & uv pip freeze > requirements.txt
 ```
 
-## 2. Kiểm tra code với Makefile
+## 2. Thiết lập pre-commit
+
+Dự án đã cấu hình sẵn pre-commit để kiểm tra code tự động trước khi commit.
+Cài đặt và kích hoạt pre-commit như sau:
+
+```bash
+uvx pip install pre-commit
+uvx pre-commit install
+```
+
+Chạy toàn bộ các hook pre-commit thủ công (nên chạy lần đầu):
+
+```bash
+uvx pre-commit run --all-files
+```
+
+Nếu muốn kiểm tra lại code và chạy pre-commit, dùng lệnh:
+
+```bash
+make precommit
+```
+
+## 3. Kiểm tra code với Makefile
 Dự án đã có sẵn Makefile để chạy các công cụ kiểm tra chất lượng mã nguồn:
 - **pylint**: Kiểm tra style và lỗi tiềm ẩn.
 - **ruff**: Kiểm tra và tự động sửa style code.
