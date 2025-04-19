@@ -37,17 +37,17 @@ def create_payment_support_agent(model_name: str) -> Agent[any]:
         tracking_code = f"PMT-{datetime.now().strftime('%Y%m%d')}-{game_id[-4:]}-{transaction_id[-6:]}"
 
         # Xử lý dữ liệu (thực tế sẽ lưu vào cơ sở dữ liệu)
-        # payment_info = {
-        #     "game_id": game_id,
-        #     "payment_method": payment_method,
-        #     "transaction_id": transaction_id,
-        #     "payment_date": payment_date,
-        #     "amount": amount if amount else "Không được cung cấp",
-        #     "issue_description": issue_description if issue_description else "Không được cung cấp",
-        #     "tracking_code": tracking_code,
-        #     "submission_time": datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-        # }
-
+        payment_info = {
+            "game_id": game_id,
+            "payment_method": payment_method,
+            "transaction_id": transaction_id,
+            "payment_date": payment_date,
+            "amount": amount if amount else "Không được cung cấp",
+            "issue_description": issue_description if issue_description else "Không được cung cấp",
+            "tracking_code": tracking_code,
+            "submission_time": datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
+        }
+        print(payment_info)
         # Giả lập việc lưu thông tin vào hệ thống
         # save_to_database(payment_info)  # Thực tế sẽ có hàm này
 
