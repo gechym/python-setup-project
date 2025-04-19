@@ -35,30 +35,3 @@ uvx pylint ./ --ignore=.venv
 uvx ruff check --fix
 uvx mypy ./
 ```
-
-## 3. Khắc phục lỗi khi push lên GitHub
-
-Nếu gặp lỗi:
-```
-error: src refspec master does not match any
-error: failed to push some refs to 'https://github.com/gechym/python-setup-project.git'
-```
-**Nguyên nhân:**  
-- Bạn chưa tạo commit nào trong repository.
-- Nhánh mặc định của bạn là `main` chứ không phải `master`.
-
-**Cách khắc phục:**
-1. Kiểm tra tên nhánh hiện tại:
-   ```bash
-   git branch
-   ```
-2. Nếu nhánh là `main`, hãy push với:
-   ```bash
-   git push origin main
-   ```
-3. Nếu chưa có commit nào, hãy tạo commit đầu tiên:
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git push origin main  # hoặc master tùy tên nhánh
-   ```
