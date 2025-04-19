@@ -1,0 +1,92 @@
+[project]
+name = "handon-openai-agent-sdk"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "colorlog>=6.9.0",
+    "openai-agents>=0.0.11",
+    "pydantic>=2.11.3",
+    "mypy>=1.15.0",
+    "python-dotenv>=1.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "pylint>=3.3.6",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.26.0",
+    "ruff>=0.11.6",
+    "pycowsay>=0.0.0.2",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 150
+output-format = "concise"
+show-fixes = true
+unsafe-fixes = false
+preview = true
+exclude = ["tutorials/", "tests/"]
+
+[tool.ruff.lint]
+select = [
+    "E", # pycodestyle
+    "F", # pyflakes
+    "B", # flake8-bugbear
+    "UP", # pyupgrade,
+    "I", # isort,
+    "Q", # quote
+    "W", # warning
+]
+
+unfixable = ["B"]
+
+[tool.ruff.format]
+docstring-code-format = true
+quote-style = "double"
+
+[tool.pylint]
+disable = [
+    "too-many-instance-attributes",
+    "import-error",
+    "too-few-public-methods",
+    "too-many-return-statements",
+    "too-many-locals",
+    "too-many-arguments",
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "import-outside-toplevel",
+    "cyclic-import",
+    "redefined-builtin",
+    "broad-exception-caught",
+    "broad-exception-raised",
+    "super-init-not-called",
+    "duplicate-code",
+    "fixme",
+    "logging-fstring-interpolation"
+]
+reports = false
+max-branches=20
+output-format = "colorized"
+max-line-length = 150
+class-const-naming-style = "PascalCase"
+ignore-patterns = ["tests/", "migrations/", ".venv" , ".mypy_cache/", ".ruff_cache/"]
+
+[tool.pylint.DESIGN]
+max-statements = 70  # Số lượng statement tối đa trong 1 hàm trước khi cảnh báo
+
+
+[tool.mypy]
+no_implicit_optional = false
+disallow_untyped_decorators = false
+ignore_missing_imports = true
+check_untyped_defs = true
+warn_return_any = true
+warn_no_return = false
+warn_unreachable = true
+strict = true
+disallow_subclassing_any = false
+strict_optional = true
