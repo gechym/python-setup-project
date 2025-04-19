@@ -3,7 +3,7 @@ lint:
 	@echo "🚀 Linting with ruff"
 	uvx ruff check --fix
 	@echo "🚀 Formatting with ruff"
-	poetry run ruff format
+	uvx ruff format
 	@echo "🚀 Linting with pylint"
 	uvx pylint ./ --ignore=.venv
 	@echo "🚀 Checking with mypy"
@@ -14,6 +14,15 @@ lint:
 	@echo "Clear cache"
 	make clean
 
+
+.PHONY: precommit
+precommit:
+	@echo "🚀 Running pre-commit hooks"
+	uvx pre-commit run --all-files
+	@echo "🟢 All pre-commit hooks have passed"
+	@echo "🚀 check lint"
+	make lint
+	@echo "🟢 All checks have passed"
 
 .PHONY: clean
 clean:

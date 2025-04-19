@@ -10,6 +10,7 @@ dependencies = [
     "pydantic>=2.11.3",
     "mypy>=1.15.0",
     "python-dotenv>=1.1.0",
+    "pre-commit>=4.2.0",
 ]
 
 [dependency-groups]
@@ -55,9 +56,6 @@ disable = [
     "too-many-return-statements",
     "too-many-locals",
     "too-many-arguments",
-    "missing-module-docstring",
-    "missing-class-docstring",
-    "missing-function-docstring",
     "import-outside-toplevel",
     "cyclic-import",
     "redefined-builtin",

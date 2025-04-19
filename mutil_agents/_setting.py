@@ -1,6 +1,9 @@
 import logging
 
-from agents import set_default_openai_api, set_default_openai_client
+from agents import (
+    set_default_openai_api,
+    set_default_openai_client,
+)
 from openai import AsyncOpenAI
 
 
